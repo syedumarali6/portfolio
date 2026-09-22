@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Syed Muhammad Umar — CMS &amp; Frontend Developer</title>
 <meta name="description" content="Syed Muhammad Umar — CMS & Frontend Developer with 4+ years building WordPress, Shopify, Wix and HubSpot websites.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -51,14 +52,14 @@ a{color:inherit}
 .ring.big{width:76px;height:76px;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
 @media(hover:hover) and (pointer:fine){.dot,.ring{opacity:1}}
 
-.wrap{position:relative;z-index:3;max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap{position:relative;z-index:3;max-width:1280px;margin:0 auto;padding:0 24px}
 .chrometext{background:var(--silver);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ---------------- nav ---------------- */
 header{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:60;padding:14px 24px;
   display:flex;justify-content:center;pointer-events:none;transition:transform .45s var(--ease)}
 header.hide{transform:translateY(-150%)}
-.bar{pointer-events:auto;width:100%;max-width:1180px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+.bar{pointer-events:auto;width:100%;max-width:1280px;display:flex;align-items:center;justify-content:space-between;gap:16px;
   padding:9px 9px 9px 20px;border:1px solid var(--line);border-radius:999px;background:rgba(10,10,13,.55);
   backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);transition:.4s}
 header.solid .bar{background:rgba(9,9,12,.9);border-color:var(--line-2)}
@@ -109,23 +110,21 @@ header.solid .bar{background:rgba(9,9,12,.9);border-color:var(--line-2)}
 
 /* ---------------- hero ---------------- */
 #home{position:relative;overflow:hidden}
-.hero{position:relative;padding:170px 0 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;z-index:2}
-.heroBg{position:absolute;left:0;right:0;top:0;bottom:0;z-index:0;overflow:hidden;pointer-events:none;
-  display:flex;flex-direction:column;justify-content:center;gap:12px;padding:60px 0}
-.heroSlider{display:flex;gap:12px;width:max-content;animation:heroSlide 70s linear infinite;will-change:transform}
-.heroSlider.rev{animation-name:heroSlideRev;animation-duration:85s}
-.heroSlider img{flex:0 0 auto;width:260px;height:160px;object-fit:cover;object-position:top center;
-  opacity:.7;filter:grayscale(.1) contrast(1.05) brightness(.9);border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 32px rgba(0,0,0,.4)}
-@keyframes heroSlide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-@keyframes heroSlideRev{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+.hero{position:relative;padding:170px 24px 90px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;z-index:2}
+.heroGlow{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(700px 420px at 15% 20%, rgba(255,255,255,.07), transparent 70%),
+    radial-gradient(560px 380px at 88% 70%, rgba(180,190,210,.06), transparent 65%),
+    radial-gradient(400px 300px at 50% 100%, rgba(255,255,255,.03), transparent 70%)}
+.heroGrid{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.035;
+  background-image:linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
 @keyframes slideX{to{transform:translateX(-50%)}}
-.heroBg::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(5,5,7,.92) 0%,rgba(5,5,7,.75) 35%,rgba(5,5,7,.45) 55%,rgba(5,5,7,.7) 78%,rgba(5,5,7,.95) 100%),
-  linear-gradient(180deg,rgba(5,5,7,.55) 0%,transparent 12%,transparent 88%,rgba(5,5,7,.6) 100%)}
 .hero>*{position:relative;z-index:2}
 .heroCopy{order:1}
 .portraitWrap{order:2}
+.heroCopy .lede{color:#b8bdc6}
+.heroCopy .lede b{color:#fff}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px;
   background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
@@ -177,7 +176,7 @@ h1 .stroke{color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.4)}
 
 /* ---------------- sections ---------------- */
 section{position:relative;z-index:3}
-.pad{padding:110px 0}
+.pad{padding:70px 0}
 .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 h2{font-size:clamp(34px,4.6vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:700;margin:16px 0 0}
 h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--muted)}
@@ -201,17 +200,20 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 /* services (replaces stack) */
 .svc{margin-top:48px;border-top:1px solid var(--line)}
 .svcRow{position:relative;display:grid;grid-template-columns:70px 1.05fr 1.4fr auto;gap:24px;align-items:center;
-  padding:30px 0;border-bottom:1px solid var(--line);transition:padding .45s var(--ease)}
-.svcRow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(255,255,255,.07),transparent);transition:width .6s var(--ease)}
-.svcRow:hover{padding-left:18px}
-.svcRow:hover::before{width:100%}
-.svcRow i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim)}
+  padding:28px 16px;margin:0 -16px;border-bottom:1px solid var(--line);border-radius:14px;
+  transition:padding .45s var(--ease),background .4s var(--ease),transform .4s var(--ease),border-color .35s var(--ease) !important}
+.svcRow::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:3px;
+  background:var(--chrome);opacity:0;transform:scaleY(.35);transition:opacity .4s var(--ease),transform .45s var(--ease)}
+.svcRow:hover{padding-left:28px;background:rgba(255,255,255,.045);transform:translateX(4px);border-color:transparent}
+.svcRow:hover::before{opacity:1;transform:scaleY(1)}
+.svcRow i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--dim);transition:color .35s}
+.svcRow:hover i{color:var(--ink)}
 .svcRow h3{margin:0;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.03em;font-weight:700}
-.svcRow p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.7}
+.svcRow p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.7;transition:color .35s}
+.svcRow:hover p{color:#b8bdc6}
 .svcRow .go{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;
-  color:var(--muted);transition:.4s var(--ease)}
-.svcRow:hover .go{background:#e9ecf1;color:#0a0a0c;border-color:#e9ecf1;transform:rotate(45deg)}
+  color:var(--muted);transition:transform .45s var(--ease),background .35s,border-color .35s,color .35s}
+.svcRow:hover .go{background:#e9ecf1;color:#0a0a0c;border-color:#e9ecf1;transform:rotate(45deg) scale(1.08)}
 .skillbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
 .skillbar span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12px;color:var(--muted);
   background:var(--panel);transition:.3s}
@@ -228,7 +230,7 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 .pcard.featured .pvisual{aspect-ratio:16/10}
 .pvisual img.scrollimg{position:absolute;left:0;top:0;width:100%;height:auto;min-height:100%;
   object-fit:cover;object-position:top center;
-  transition:transform 5.5s cubic-bezier(.22,.61,.36,1)}
+  transition:transform 12s cubic-bezier(.22,.61,.36,1)}
 .pcard:hover .pvisual img.scrollimg{transform:translateY(calc(-100% + 240px))}
 .pcard.featured:hover .pvisual img.scrollimg{transform:translateY(calc(-100% + 280px))}
 .pvisual::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
@@ -273,14 +275,21 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 /* experience + education */
 .expGrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .timeline{border-top:1px solid var(--line)}
-.job{position:relative;padding:24px 0;border-bottom:1px solid var(--line);transition:padding .4s var(--ease)}
-.job::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--chrome);transition:width .6s var(--ease)}
-.job:hover{padding-left:14px}
-.job:hover::before{width:100%}
-.job time{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.08em}
+.job{position:relative;padding:22px 14px;margin:0 -14px;border-bottom:1px solid var(--line);border-radius:12px;
+  transition:padding .45s var(--ease),background .4s var(--ease),transform .4s var(--ease),border-color .35s !important}
+.job::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:3px;border-radius:3px;
+  background:var(--chrome);opacity:0;transform:scaleY(.3);transition:opacity .4s var(--ease),transform .45s var(--ease)}
+.job::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:1px;background:var(--chrome);
+  transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.job:hover{padding-left:24px;background:rgba(255,255,255,.04);transform:translateX(3px);border-color:transparent}
+.job:hover::before{opacity:1;transform:scaleY(1)}
+.job:hover::after{transform:scaleX(1)}
+.job time{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.08em;transition:color .35s}
+.job:hover time{color:var(--muted)}
 .job h3{margin:8px 0 0;font-size:18px;font-weight:700;letter-spacing:-.02em}
 .job h3 span{color:var(--dim);font-weight:400}
-.job p{margin:8px 0 0;color:var(--muted);font-size:13.5px;line-height:1.7}
+.job p{margin:8px 0 0;color:var(--muted);font-size:13.5px;line-height:1.7;transition:color .35s}
+.job:hover p{color:#b8bdc6}
 
 /* contact */
 .contactBox{position:relative;overflow:hidden;border:1px solid var(--line-2);border-radius:28px;padding:56px 44px;
@@ -302,7 +311,9 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 footer{position:relative;z-index:3;border-top:1px solid var(--line);margin-top:70px;padding:26px 0;display:flex;
   justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--dim)}
 footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}
+footer a:hover{color:var(--ink)}footer.wrap {
+    padding: 20px 24px;
+}
 .top{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:58;width:46px;height:46px;border-radius:50%;
   border:1px solid var(--line-2);background:rgba(12,12,15,.75);backdrop-filter:blur(14px);color:var(--ink);cursor:pointer;
   opacity:0;transform:translateY(16px);pointer-events:none;transition:.45s var(--ease)}
@@ -327,11 +338,13 @@ footer a:hover{color:var(--ink)}
   .workGrid{grid-template-columns:repeat(6,1fr);gap:14px}
   .pcard{grid-column:span 3}
   .pcard.featured{grid-column:span 6}
-  .heroBg::after{background:linear-gradient(180deg,rgba(5,5,7,.5) 0%,rgba(5,5,7,.92) 55%,rgba(5,5,7,.98) 100%)}
 }
 @media(max-width:620px){
   .wrap{padding:0 18px}
-  .pad{padding:80px 0}
+  .pad{padding:50px 0}
+      .hero {
+        padding-top: 140px;
+    }
   .contactBox{padding:34px 20px;border-radius:22px}
   .stats{gap:20px}
   .b1{left:-6px}.b2{right:-6px}
@@ -339,8 +352,6 @@ footer a:hover{color:var(--ink)}
   .workGrid{grid-template-columns:1fr;gap:14px}
   .pcard,.pcard.featured{grid-column:span 1}
   .pvisual,.pcard.featured .pvisual{aspect-ratio:16/11}
-  .heroSlider img{width:180px;height:110px}
-  .heroBg{gap:8px;padding:40px 0}
 }
 </style>
 </head>
@@ -376,50 +387,8 @@ footer a:hover{color:var(--ink)}
 
 <main>
 <section id="home">
-  <div class="heroBg" aria-hidden="true">
-    <div class="heroSlider">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-traviswalkerlaw-2026-09-21-02_46_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-sw-bautechnik-de-2026-09-21-02_45_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-1.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-traviswalkerlaw-2026-09-21-02_46_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-sw-bautechnik-de-2026-09-21-02_45_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-1.png" alt="" decoding="async">
-    </div>
-    <div class="heroSlider rev">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pj-glasriel-de-2026-09-21-02_44_02.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pflegebildunghoch3-de-2026-09-21-02_43_34.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-woptimize-de-2026-09-21-02_59_25.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-verowert-de-2026-09-21-02_46_56.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-renoja-2026-09-21-02_46_44.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-2.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pj-glasriel-de-2026-09-21-02_44_02.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pflegebildunghoch3-de-2026-09-21-02_43_34.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-woptimize-de-2026-09-21-02_59_25.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-verowert-de-2026-09-21-02_46_56.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-renoja-2026-09-21-02_46_44.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-2.png" alt="" decoding="async">
-    </div>
-    <div class="heroSlider">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pizzabae-au-2026-09-21-02_43_50.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-3.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content.jpg" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pizzabae-au-2026-09-21-02_43_50.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-3.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.png" alt="" decoding="async">
-      <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content.jpg" alt="" decoding="async">
-    </div>
-  </div>
+  <div class="heroGlow" aria-hidden="true"></div>
+  <div class="heroGrid" aria-hidden="true"></div>
   <div class="wrap hero">
     <div class="heroCopy">
       <span class="eyebrow rv"><i></i>Available for projects — 2026</span>
@@ -542,7 +511,7 @@ footer a:hover{color:var(--ink)}
       <!-- 4 featured (large) -->
       <a class="pcard featured rv" href="https://privategalapagos.com" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.png" alt="Private Galapagos" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.webp" alt="Private Galapagos" loading="lazy">
           <span class="label">Travel</span>
           <div class="name">Private Galapagos</div>
           <span class="parr">↗</span>
@@ -554,7 +523,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard featured rv" href="https://traviswalkerlaw.com" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-traviswalkerlaw-2026-09-21-02_46_21.png" alt="Travis Walker Law" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-traviswalkerlaw-2026-09-21-02_46_21.webp" alt="Travis Walker Law" loading="lazy">
           <span class="label">Legal</span>
           <div class="name">Travis Walker Law</div>
           <span class="parr">↗</span>
@@ -566,7 +535,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard featured rv" href="https://r211-agentur.de" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.png" alt="R211 Agentur" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.webp" alt="R211 Agentur" loading="lazy">
           <span class="label">Agency</span>
           <div class="name">R211 Agentur</div>
           <span class="parr">↗</span>
@@ -578,7 +547,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard featured rv" href="https://vertexsecurity.com" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.png" alt="Vertex Security" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.webp" alt="Vertex Security" loading="lazy">
           <span class="label">Security</span>
           <div class="name">Vertex Security</div>
           <span class="parr">↗</span>
@@ -592,7 +561,7 @@ footer a:hover{color:var(--ink)}
       <!-- same-size cards (first batch visible, rest load more) -->
       <a class="pcard rv" href="https://sw-bautechnik.de" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-sw-bautechnik-de-2026-09-21-02_45_40.png" alt="SW Bautechnik" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-sw-bautechnik-de-2026-09-21-02_45_40.webp" alt="SW Bautechnik" loading="lazy">
           <span class="label">Construction</span>
           <div class="name">SW Bautechnik</div>
           <span class="parr">↗</span>
@@ -604,7 +573,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv" href="https://pj-glasriel.de" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pj-glasriel-de-2026-09-21-02_44_02.png" alt="PJ Glasriel" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pj-glasriel-de-2026-09-21-02_44_02.webp" alt="PJ Glasriel" loading="lazy">
           <span class="label">Glass</span>
           <div class="name">PJ Glasriel</div>
           <span class="parr">↗</span>
@@ -616,7 +585,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv" href="https://pflegebildunghoch3.de" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pflegebildunghoch3-de-2026-09-21-02_43_34.png" alt="Pflegebildung Hoch3" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pflegebildunghoch3-de-2026-09-21-02_43_34.webp" alt="Pflegebildung Hoch3" loading="lazy">
           <span class="label">Education</span>
           <div class="name">Pflegebildung Hoch3</div>
           <span class="parr">↗</span>
@@ -628,7 +597,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv" href="https://woptimize.de" target="_blank" rel="noopener" data-show>
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-woptimize-de-2026-09-21-02_59_25.png" alt="Woptimize" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-woptimize-de-2026-09-21-02_59_25.webp" alt="Woptimize" loading="lazy">
           <span class="label">Digital</span>
           <div class="name">Woptimize</div>
           <span class="parr">↗</span>
@@ -641,7 +610,7 @@ footer a:hover{color:var(--ink)}
 
       <a class="pcard rv hidden" href="https://verowert.de" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-verowert-de-2026-09-21-02_46_56.png" alt="Verowert" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-verowert-de-2026-09-21-02_46_56.webp" alt="Verowert" loading="lazy">
           <span class="label">Real Estate</span>
           <div class="name">Verowert</div>
           <span class="parr">↗</span>
@@ -653,7 +622,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv hidden" href="https://renoja.com" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-renoja-2026-09-21-02_46_44.png" alt="Renoja" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-renoja-2026-09-21-02_46_44.webp" alt="Renoja" loading="lazy">
           <span class="label">Renovation</span>
           <div class="name">Renoja</div>
           <span class="parr">↗</span>
@@ -665,7 +634,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv hidden" href="https://pizzabae.au" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pizzabae-au-2026-09-21-02_43_50.png" alt="Pizza Bae" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pizzabae-au-2026-09-21-02_43_50.webp" alt="Pizza Bae" loading="lazy">
           <span class="label">Food</span>
           <div class="name">Pizza Bae</div>
           <span class="parr">↗</span>
@@ -677,7 +646,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-1.png" alt="Project" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-1.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
           <div class="name">Featured Build</div>
           <span class="parr">↗</span>
@@ -689,7 +658,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-2.png" alt="Project" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-2.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
           <div class="name">Featured Build</div>
           <span class="parr">↗</span>
@@ -701,7 +670,7 @@ footer a:hover{color:var(--ink)}
       </a>
       <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
         <div class="pvisual">
-          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-3.png" alt="Project" loading="lazy">
+          <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-3.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
           <div class="name">Featured Build</div>
           <span class="parr">↗</span>
