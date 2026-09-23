@@ -179,6 +179,14 @@ h1 .stroke{color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.4)}
 .marquee div span{color:rgba(255,255,255,.45);margin:0 16px}
 
 /* ---------------- sections ---------------- */
+#services{background:
+  radial-gradient(600px 280px at 90% 10%, rgba(255,255,255,.04), transparent 70%),
+  radial-gradient(500px 260px at 5% 80%, rgba(160,170,190,.04), transparent 70%)}
+#experience{background:
+  radial-gradient(520px 300px at 10% 20%, rgba(255,255,255,.035), transparent 65%),
+  radial-gradient(480px 240px at 95% 70%, rgba(180,190,210,.03), transparent 70%)}
+#work{background:radial-gradient(700px 320px at 50% 0%, rgba(255,255,255,.03), transparent 60%)}
+
 section{position:relative;z-index:3}
 .pad{padding:70px 0}
 .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
@@ -203,7 +211,7 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 
 /* services (replaces stack) */
 .svc{margin-top:48px;border-top:1px solid var(--line)}
-.svcRow{position:relative;display:grid;grid-template-columns:70px 1.05fr 1.4fr auto;gap:24px;align-items:center;
+.svcRow{position:relative;display:grid;grid-template-columns:70px 1.05fr 1.4fr auto;gap:24px;align-items:center;text-decoration:none;color:inherit;cursor:pointer;
   padding:28px 16px;margin:0 -16px;border-bottom:1px solid var(--line);border-radius:14px;
   transition:padding .45s var(--ease),background .4s var(--ease),transform .4s var(--ease),border-color .35s var(--ease) !important}
 .svcRow::before{content:"";position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:3px;
@@ -312,11 +320,22 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 .socials a{text-decoration:none;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:10px 18px;transition:.3s}
 .socials a:hover{color:var(--ink);border-color:var(--line-2);background:rgba(255,255,255,.07);transform:translateY(-2px)}
 
-footer{position:relative;z-index:3;border-top:1px solid var(--line);margin-top:70px;padding:26px 0;display:flex;
-  justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--dim)}
-footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}
-footer.wrap{padding:20px 24px}
+.siteFoot{position:relative;z-index:3;border-top:1px solid var(--line);margin-top:60px;padding:36px 0 28px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.02))}
+.footInner{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px;align-items:center}
+.footBrand strong{display:block;font-size:15px;letter-spacing:-.02em;margin-bottom:6px}
+.footBrand span{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.footLinks{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center}
+.footLinks a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .3s}
+.footLinks a:hover{color:var(--ink)}
+.footCopy{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.footCopy a{color:var(--muted);text-decoration:none}
+.footCopy a:hover{color:var(--ink)}
+@media(max-width:980px){
+  .footInner{grid-template-columns:1fr;text-align:center;gap:20px}
+  .footLinks{justify-content:center}
+  .footCopy{align-items:center}
+}
 .top{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:58;width:46px;height:46px;border-radius:50%;
   border:1px solid var(--line-2);background:rgba(12,12,15,.75);backdrop-filter:blur(14px);color:var(--ink);cursor:pointer;
   opacity:0;transform:translateY(16px);pointer-events:none;transition:.45s var(--ease)}
@@ -380,7 +399,6 @@ footer.wrap{padding:20px 24px}
   .job{padding:18px 10px;margin:0}
   .job:hover{padding-left:18px}
   .facts{grid-template-columns:1fr;gap:8px}
-  footer.wrap{padding:18px 16px;flex-direction:column;gap:8px;text-align:center}
   .aboutTxt p{font-size:14.5px}
   .mail{font-size:clamp(18px,6vw,28px)}
 }
@@ -436,7 +454,7 @@ footer.wrap{padding:20px 24px}
         <span class="word"><span>that</span></span><br>
         <span class="word"><span>actually&nbsp;ship.</span></span>
       </h1>
-      <p class="lede rv">Syed Muhammad Umar — CMS &amp; Frontend Developer with <b>4+ years</b> building, customising and maintaining websites on <b>WordPress, Shopify, Wix and HubSpot</b>.</p>
+      <p class="lede rv">Syed Muhammad Umar — CMS &amp; Frontend Developer with <b>4+ years</b> shipping production sites on <b>WordPress, Shopify, Wix, HubSpot</b> and more. Clean builds, fast load times, and systems clients can actually manage.</p>
       <div class="row rv">
         <a class="gbtn light magnet" href="#work"><span class="in">Explore my work <span class="ar">↗</span></span></a>
         <a class="gbtn magnet" href="#contact"><span class="in">Start a project <span class="ar">→</span></span></a>
@@ -444,7 +462,7 @@ footer.wrap{padding:20px 24px}
       <div class="stats rv">
         <div><b data-count="4" data-suffix="+">0</b><span>Years experience</span></div>
         <div><b data-count="50" data-suffix="+">0</b><span>Websites built</span></div>
-        <div><b data-count="7" data-suffix="+">0</b><span>CMS platforms</span></div>
+        <div><b data-count="30" data-suffix="+">0</b><span>Happy clients</span></div>
       </div>
     </div>
 
@@ -473,13 +491,13 @@ footer.wrap{padding:20px 24px}
     </div>
     <div class="aboutGrid" style="margin-top:46px">
       <figure class="aboutImg rv" style="margin:0">
-        <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/umar-profile.jpg" alt="Syed Muhammad Umar" onerror="this.closest('.aboutImg').style.background='linear-gradient(160deg,#16171c,#08090c)'">
+        <img src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/image-1.jpg" alt="Syed Muhammad Umar" onerror="this.closest('.aboutImg').style.background='linear-gradient(160deg,#16171c,#08090c)'">
         <figcaption>Syed Muhammad Umar — Karachi, PK</figcaption>
       </figure>
       <div class="aboutTxt rv">
-        <p>I'm a CMS and Frontend Developer with <b>4+ years</b> of experience building, customising and maintaining websites across <b>WordPress, Shopify, Wix, HubSpot, Squarespace and GoHighLevel</b>.</p>
-        <p>Day to day that means custom WordPress development, theme customisation, page builders like Elementor and Divi, Shopify Liquid, and wiring in third-party tools, APIs and plugins so the site actually does what the business needs.</p>
-        <p>I also handle the unglamorous parts — performance optimisation, responsive behaviour and content structures the client can manage without calling me every week.</p>
+        <p>I'm a CMS and Frontend Developer with <b>4+ years</b> of hands-on experience shipping websites for businesses in the <b>US, UK, Germany, Netherlands and Australia</b>.</p>
+        <p>I work across <b>WordPress, Shopify, Wix, HubSpot, Squarespace and GoHighLevel</b> — from custom themes and Liquid sections to page builders, WooCommerce, and CRM-connected forms. The goal is always the same: a site that looks sharp, loads fast, and converts.</p>
+        <p>Beyond design and layout, I handle performance, mobile behaviour, migrations, and content structures clients can update themselves — so you are not stuck waiting on a developer for every small change.</p>
         <div class="facts">
           <div class="fact"><small>Education</small><p>Intermediate — Govt. Degree Boys College</p></div>
           <div class="fact"><small>Diploma</small><p>MERN Stack Development — Aptech</p></div>
@@ -497,37 +515,37 @@ footer.wrap{padding:20px 24px}
       <span class="tag">02 — Services</span>
       <h2>What I can <em>build for you.</em></h2>
     </div>
-    <div class="svc">
-      <div class="svcRow rv">
+        <div class="svc">
+      <a class="svcRow rv" href="mailto:umarali0934@gmail.com?subject=Custom%20WordPress%20Project">
         <i>01</i>
         <h3>Custom WordPress</h3>
-        <p>Themes from scratch or heavily customised, ACF &amp; custom post types, Elementor and Divi builds, WooCommerce stores, plugin work.</p>
-        <div class="go">↑</div>
-      </div>
-      <div class="svcRow rv">
+        <p>Themes from scratch or heavily customised builds — ACF, custom post types, Elementor &amp; Divi, WooCommerce stores and plugin work that fits the business, not the other way around.</p>
+        <span class="go">↑</span>
+      </a>
+      <a class="svcRow rv" href="mailto:umarali0934@gmail.com?subject=Shopify%20Store%20Project">
         <i>02</i>
         <h3>Shopify Stores</h3>
-        <p>Liquid development, custom sections and templates, theme customisation, app setup and storefronts built to convert.</p>
-        <div class="go">↑</div>
-      </div>
-      <div class="svcRow rv">
+        <p>Liquid development, custom sections and templates, theme customisation, app setup and storefronts designed to convert — product pages, collections and checkout flows included.</p>
+        <span class="go">↑</span>
+      </a>
+      <a class="svcRow rv" href="mailto:umarali0934@gmail.com?subject=CMS%20Migration%20%26%20Setup">
         <i>03</i>
         <h3>CMS Migration &amp; Setup</h3>
-        <p>Wix, HubSpot, Squarespace, Kajabi and GoHighLevel — new builds, platform moves and content structures that stay manageable.</p>
-        <div class="go">↑</div>
-      </div>
-      <div class="svcRow rv">
+        <p>Wix, HubSpot, Squarespace, Kajabi and GoHighLevel — new builds, platform moves and content structures that stay easy for your team to manage long-term.</p>
+        <span class="go">↑</span>
+      </a>
+      <a class="svcRow rv" href="mailto:umarali0934@gmail.com?subject=Speed%20%26%20Performance">
         <i>04</i>
         <h3>Speed &amp; Performance</h3>
-        <p>Core Web Vitals, image and asset optimisation, caching, plugin cleanup — making slow sites load like they should.</p>
-        <div class="go">↑</div>
-      </div>
-      <div class="svcRow rv">
+        <p>Core Web Vitals, image and asset optimisation, caching and plugin cleanup — turning slow sites into pages that feel instant on mobile and desktop.</p>
+        <span class="go">↑</span>
+      </a>
+      <a class="svcRow rv" href="mailto:umarali0934@gmail.com?subject=Integrations%20%26%20Automation">
         <i>05</i>
         <h3>Integrations &amp; Automation</h3>
-        <p>REST APIs, third-party tools, CRM and form connections, GoHighLevel automation and Git-based workflows.</p>
-        <div class="go">↑</div>
-      </div>
+        <p>REST APIs, third-party tools, CRM and form connections, GoHighLevel automation and Git-based workflows so marketing and ops stay in sync.</p>
+        <span class="go">↑</span>
+      </a>
     </div>
     <div class="skillbar rv">
       <span>WordPress</span><span>Shopify</span><span>Wix</span><span>Squarespace</span><span>HubSpot</span><span>Kajabi</span>
@@ -780,7 +798,7 @@ footer.wrap{padding:20px 24px}
   <div class="wrap">
     <div class="contactBox rv">
       <span class="tag">05 — Contact</span>
-      <h2>Let's make something<br><em>worth clicking.</em></h2>
+      <h2>Have a project in mind?<br><em>Let's build it right.</em></h2>
       <a class="mail" href="mailto:umarali0934@gmail.com">umarali0934@gmail.com</a>
       <div class="meta">
         <div><small>Phone</small><p><a href="tel:+923168288952">+92 316 8288952</a></p></div>
@@ -800,10 +818,24 @@ footer.wrap{padding:20px 24px}
 </section>
 </main>
 
-<footer class="wrap">
-  <span>UMAR © 2026</span>
-  <span>CMS Developer / Custom web solutions</span>
-  <a href="#home">Back to top ↑</a>
+<footer class="siteFoot">
+  <div class="wrap footInner">
+    <div class="footBrand">
+      <strong>UMAR</strong>
+      <span>CMS &amp; Frontend Developer · Karachi, PK</span>
+    </div>
+    <div class="footLinks">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="mailto:umarali0934@gmail.com">Email</a>
+      <a href="https://wa.me/923168288952" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/qksjor.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+    <div class="footCopy">
+      <span>© 2026 Syed Muhammad Umar</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </div>
 </footer>
 
 <button class="top" id="top" aria-label="Back to top">↑</button>
