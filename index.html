@@ -110,7 +110,7 @@ header.solid .bar{background:rgba(9,9,12,.9);border-color:var(--line-2)}
 
 /* ---------------- hero ---------------- */
 #home{position:relative;overflow:hidden}
-.hero{position:relative;padding:170px 24px 90px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;z-index:2}
+.hero{position:relative;padding:160px 24px 80px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;z-index:2}
 .heroGlow{position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
     radial-gradient(700px 420px at 15% 20%, rgba(255,255,255,.07), transparent 70%),
@@ -150,10 +150,14 @@ h1 .stroke{color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.4)}
 .frameGlow::before{content:"";position:absolute;inset:-130%;z-index:-2;
   background:conic-gradient(from 0deg,rgba(255,255,255,.05) 0 40%,rgba(255,255,255,.9) 52%,rgba(255,255,255,.08) 66%,rgba(255,255,255,.5) 80%,rgba(255,255,255,.05) 100%);
   animation:rot 9s linear infinite}
-.portrait{position:relative;aspect-ratio:4/5;border-radius:27px;overflow:hidden;background:linear-gradient(160deg,#14151a,#0a0b0e)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:grayscale(.25) contrast(1.06);
-  transform:scale(1.02);transition:transform 1.2s var(--ease),filter .6s}
-.portraitWrap:hover .portrait img{transform:scale(1.07);filter:grayscale(0) contrast(1.1)}
+.portrait{position:relative;aspect-ratio:3/4;border-radius:32px;overflow:hidden;background:linear-gradient(160deg,#14151a,#0a0b0e);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(.15) contrast(1.08) saturate(.92);
+  transform:scale(1.03);transition:transform 1.4s var(--ease),filter .7s var(--ease)}
+.portraitWrap:hover .portrait img{transform:scale(1.08);filter:grayscale(0) contrast(1.12) saturate(1)}
+.portraitWrap{max-width:420px;margin-left:auto}
+.frameGlow{border-radius:34px}
+.frameGlow::before{animation-duration:12s}
 .portrait .fallback{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:100px;color:rgba(255,255,255,.12)}
 .portrait::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 44%,rgba(4,4,6,.9))}
 .sheen{position:absolute;inset:0;z-index:3;pointer-events:none;
@@ -221,7 +225,7 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 
 /* work — image cards + hover scroll + load more */
 .workGrid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:48px}
-.pcard{position:relative;grid-column:span 3;display:flex;flex-direction:column;text-decoration:none;
+.pcard{position:relative;grid-column:span 3;display:flex;flex-direction:column;text-decoration:none;cursor:default;
   border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel);
   transition:transform .5s var(--ease),border-color .35s,box-shadow .5s var(--ease)}
 .pcard:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 24px 50px rgba(0,0,0,.4)}
@@ -311,9 +315,8 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--mut
 footer{position:relative;z-index:3;border-top:1px solid var(--line);margin-top:70px;padding:26px 0;display:flex;
   justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:var(--dim)}
 footer a{text-decoration:none}
-footer a:hover{color:var(--ink)}footer.wrap {
-    padding: 20px 24px;
-}
+footer a:hover{color:var(--ink)}
+footer.wrap{padding:20px 24px}
 .top{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:58;width:46px;height:46px;border-radius:50%;
   border:1px solid var(--line-2);background:rgba(12,12,15,.75);backdrop-filter:blur(14px);color:var(--ink);cursor:pointer;
   opacity:0;transform:translateY(16px);pointer-events:none;transition:.45s var(--ease)}
@@ -324,34 +327,68 @@ footer a:hover{color:var(--ink)}footer.wrap {
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv,.word>span{opacity:1;transform:none!important}*{animation:none!important;transition-duration:.01ms!important}}
 
+@media(max-width:1100px){
+  .hero{gap:36px}
+  .svcRow{grid-template-columns:56px 1fr 1.2fr auto;gap:18px}
+}
 @media(max-width:980px){
   .links,.dot,.ring{display:none}
   .burger{display:flex}
-  .hero{grid-template-columns:1fr;gap:40px;padding-top:140px}
+  .hero{grid-template-columns:1fr;gap:36px;padding:130px 20px 60px;text-align:left}
   .heroCopy{order:1}
-  .portraitWrap{order:2;max-width:360px;margin:0 auto}
-  .aboutGrid,.expGrid{grid-template-columns:1fr;gap:34px}
-  .aboutImg{max-width:340px}
-  .svcRow{grid-template-columns:44px 1fr auto;row-gap:10px}
+  .portraitWrap{order:2;max-width:320px;margin:0 auto}
+  .aboutGrid,.expGrid{grid-template-columns:1fr;gap:28px}
+  .aboutImg{max-width:100%;margin:0 auto}
+  .svcRow{grid-template-columns:44px 1fr auto;row-gap:8px;gap:14px;padding:22px 12px;margin:0}
+  .svcRow:hover{padding-left:20px}
   .svcRow p{grid-column:2/4}
   .grid{grid-template-columns:repeat(2,1fr)}
   .workGrid{grid-template-columns:repeat(6,1fr);gap:14px}
   .pcard{grid-column:span 3}
   .pcard.featured{grid-column:span 6}
+  .meta{gap:24px}
+  .facts{grid-template-columns:1fr 1fr}
+  header{padding:12px 16px}
+  .bar{padding:8px 8px 8px 16px}
 }
 @media(max-width:620px){
-  .wrap{padding:0 18px}
-  .pad{padding:50px 0}
-      .hero {
-        padding-top: 140px;
-    }
-  .contactBox{padding:34px 20px;border-radius:22px}
-  .stats{gap:20px}
-  .b1{left:-6px}.b2{right:-6px}
-  .marquee div{font-size:19px}
-  .workGrid{grid-template-columns:1fr;gap:14px}
+  .wrap{padding:0 16px}
+  .pad{padding:48px 0}
+  .hero{padding:120px 16px 48px;gap:28px}
+  h1{font-size:clamp(36px,11vw,52px)}
+  h2{font-size:clamp(28px,8vw,40px)}
+  .lede{font-size:15px;margin-top:18px}
+  .stats{gap:16px;margin-top:32px}
+  .stats div b{font-size:26px}
+  .row{margin-top:24px;gap:10px}
+  .gbtn .in{padding:13px 20px;font-size:13px}
+  .portraitWrap{max-width:280px}
+  .b1{left:-4px;top:10%}
+  .b2{right:-4px;bottom:10%}
+  .badge{padding:10px 12px;font-size:9.5px}
+  .contactBox{padding:28px 18px;border-radius:20px}
+  .meta{gap:18px;flex-direction:column}
+  .socials{gap:8px}
+  .socials a{padding:9px 14px;font-size:12px}
+  .marquee div{font-size:17px}
+  .workGrid{grid-template-columns:1fr;gap:12px}
   .pcard,.pcard.featured{grid-column:span 1}
   .pvisual,.pcard.featured .pvisual{aspect-ratio:16/11}
+  .svcRow{grid-template-columns:36px 1fr;padding:18px 8px}
+  .svcRow .go{grid-column:2;justify-self:start;margin-top:6px}
+  .svcRow p{grid-column:1/3}
+  .job{padding:18px 10px;margin:0}
+  .job:hover{padding-left:18px}
+  .facts{grid-template-columns:1fr;gap:8px}
+  footer.wrap{padding:18px 16px;flex-direction:column;gap:8px;text-align:center}
+  .aboutTxt p{font-size:14.5px}
+  .mail{font-size:clamp(18px,6vw,28px)}
+}
+@media(max-width:400px){
+  .wrap{padding:0 14px}
+  .stats{gap:12px}
+  .stats div b{font-size:22px}
+  .eyebrow{font-size:10px;padding:6px 12px}
 }
 </style>
 </head>
@@ -509,7 +546,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
 
     <div class="workGrid" id="workGrid">
       <!-- 4 featured (large) -->
-      <a class="pcard featured rv" href="https://privategalapagos.com" target="_blank" rel="noopener" data-show>
+      <a class="pcard featured rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-privategalapagos-2026-09-21-02_44_58.webp" alt="Private Galapagos" loading="lazy">
           <span class="label">Travel</span>
@@ -521,7 +558,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Travel</span></div>
         </div>
       </a>
-      <a class="pcard featured rv" href="https://traviswalkerlaw.com" target="_blank" rel="noopener" data-show>
+      <a class="pcard featured rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-traviswalkerlaw-2026-09-21-02_46_21.webp" alt="Travis Walker Law" loading="lazy">
           <span class="label">Legal</span>
@@ -533,7 +570,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Legal</span></div>
         </div>
       </a>
-      <a class="pcard featured rv" href="https://r211-agentur.de" target="_blank" rel="noopener" data-show>
+      <a class="pcard featured rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-r211-agentur-de-2026-09-21-02_44_40.webp" alt="R211 Agentur" loading="lazy">
           <span class="label">Agency</span>
@@ -545,7 +582,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Agency</span></div>
         </div>
       </a>
-      <a class="pcard featured rv" href="https://vertexsecurity.com" target="_blank" rel="noopener" data-show>
+      <a class="pcard featured rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-vertexsecurity-2026-09-21-03_01_21.webp" alt="Vertex Security" loading="lazy">
           <span class="label">Security</span>
@@ -559,7 +596,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
       </a>
 
       <!-- same-size cards (first batch visible, rest load more) -->
-      <a class="pcard rv" href="https://sw-bautechnik.de" target="_blank" rel="noopener" data-show>
+      <a class="pcard rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-sw-bautechnik-de-2026-09-21-02_45_40.webp" alt="SW Bautechnik" loading="lazy">
           <span class="label">Construction</span>
@@ -571,7 +608,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>DE</span></div>
         </div>
       </a>
-      <a class="pcard rv" href="https://pj-glasriel.de" target="_blank" rel="noopener" data-show>
+      <a class="pcard rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pj-glasriel-de-2026-09-21-02_44_02.webp" alt="PJ Glasriel" loading="lazy">
           <span class="label">Glass</span>
@@ -583,7 +620,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>DE</span></div>
         </div>
       </a>
-      <a class="pcard rv" href="https://pflegebildunghoch3.de" target="_blank" rel="noopener" data-show>
+      <a class="pcard rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pflegebildunghoch3-de-2026-09-21-02_43_34.webp" alt="Pflegebildung Hoch3" loading="lazy">
           <span class="label">Education</span>
@@ -595,7 +632,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Education</span></div>
         </div>
       </a>
-      <a class="pcard rv" href="https://woptimize.de" target="_blank" rel="noopener" data-show>
+      <a class="pcard rv" href="#work" data-show>
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-woptimize-de-2026-09-21-02_59_25.webp" alt="Woptimize" loading="lazy">
           <span class="label">Digital</span>
@@ -608,7 +645,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
         </div>
       </a>
 
-      <a class="pcard rv hidden" href="https://verowert.de" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-verowert-de-2026-09-21-02_46_56.webp" alt="Verowert" loading="lazy">
           <span class="label">Real Estate</span>
@@ -620,7 +657,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>DE</span></div>
         </div>
       </a>
-      <a class="pcard rv hidden" href="https://renoja.com" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-renoja-2026-09-21-02_46_44.webp" alt="Renoja" loading="lazy">
           <span class="label">Renovation</span>
@@ -632,7 +669,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Home</span></div>
         </div>
       </a>
-      <a class="pcard rv hidden" href="https://pizzabae.au" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/screencapture-pizzabae-au-2026-09-21-02_43_50.webp" alt="Pizza Bae" loading="lazy">
           <span class="label">Food</span>
@@ -644,7 +681,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>Shopify</span><span>Food</span></div>
         </div>
       </a>
-      <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-1.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
@@ -656,7 +693,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Custom</span></div>
         </div>
       </a>
-      <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-2.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
@@ -668,7 +705,7 @@ footer a:hover{color:var(--ink)}footer.wrap {
           <div class="ptags"><span>WordPress</span><span>Custom</span></div>
         </div>
       </a>
-      <a class="pcard rv hidden" href="#" target="_blank" rel="noopener">
+      <a class="pcard rv hidden" href="#work">
         <div class="pvisual">
           <img class="scrollimg" src="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/content-3.webp" alt="Project" loading="lazy">
           <span class="label">CMS</span>
@@ -754,8 +791,8 @@ footer a:hover{color:var(--ink)}footer.wrap {
       <div class="socials">
         <a href="mailto:umarali0934@gmail.com">Email ↗</a>
         <a href="https://wa.me/923168288952" target="_blank" rel="noopener">WhatsApp ↗</a>
-        <a href="#">LinkedIn ↗</a>
-        <a href="#">GitHub ↗</a>
+        <a href="mailto:umarali0934@gmail.com">LinkedIn ↗</a>
+        <a href="tel:+923168288952">Call ↗</a>
         <a id="cvLink" href="https://muhammadumarwuaze.wordpress.com/wp-content/uploads/2026/09/qksjor.pdf" target="_blank" rel="noopener">Download CV ↓</a>
       </div>
     </div>
